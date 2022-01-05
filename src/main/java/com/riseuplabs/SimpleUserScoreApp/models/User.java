@@ -21,4 +21,7 @@ public class User {
 
     @Column(name = "country", nullable = false)
     private String country;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private UserProgress userProgress;
 }

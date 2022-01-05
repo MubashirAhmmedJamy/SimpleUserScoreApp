@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User update(User user) throws ServiceException {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
@@ -30,7 +30,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findById(long id) {
-        return null;
+        try {
+            return userRepository.findById(id).get();
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
