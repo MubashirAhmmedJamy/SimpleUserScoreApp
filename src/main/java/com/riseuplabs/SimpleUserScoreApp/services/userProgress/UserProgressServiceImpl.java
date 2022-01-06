@@ -39,7 +39,7 @@ public class UserProgressServiceImpl implements UserProgressService{
     }
 
     @Override
-    public List<UserProgress> findAll(int page, int size) {
-        return null;
+    public List<UserProgress> findAll() {
+        return userProgressRepository.findAll();
     }
 }

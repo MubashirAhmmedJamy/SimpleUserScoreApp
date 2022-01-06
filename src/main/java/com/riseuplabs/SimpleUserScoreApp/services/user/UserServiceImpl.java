@@ -15,12 +15,20 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User create(User user) throws ServiceException {
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public User update(User user) throws ServiceException {
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -38,7 +46,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> findAll(int page, int size) {
-        return null;
+    public List<User> findAll() {
+        try {
+            return userRepository.findAll();
+        }catch (Exception e){
+            return null;
+        }
     }
 }

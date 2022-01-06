@@ -7,5 +7,5 @@ public interface AbstractService<T> {
     T update(T t) throws ServiceException;
     T delete(long id) throws ServiceException;
     T findById(long id);
-    List<T> findAll(int page, int size);
+    List<T> findAll();
 }
