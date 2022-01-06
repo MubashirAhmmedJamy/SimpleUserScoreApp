@@ -15,6 +15,5 @@ public class Mappings {
     public static final String GET_USER_PROGRESS = "/list/users/{id}/getUserProgress";
     public static final String GET_USER_LIST = "/list/users";
     public static final String GET_USER_PROGRESS_LIST = "/list/userProgresses";
-
-
+    public static final String GET_LEADERS = "/list/leaders";
 }

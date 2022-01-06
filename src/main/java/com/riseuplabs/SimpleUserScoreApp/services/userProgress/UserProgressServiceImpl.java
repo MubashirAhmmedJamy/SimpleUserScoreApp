@@ -1,6 +1,7 @@
 package com.riseuplabs.SimpleUserScoreApp.services.userProgress;
 
 import com.riseuplabs.SimpleUserScoreApp.models.UserProgress;
+import com.riseuplabs.SimpleUserScoreApp.pojo.commons.Rank;
 import com.riseuplabs.SimpleUserScoreApp.repositories.UserProgressRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,10 @@ public class UserProgressServiceImpl implements UserProgressService{
     @Override
     public List<UserProgress> findAll() {
         return userProgressRepository.findAll();
+    }
+
+    @Override
+    public List<Rank> getCurrentRanking() throws ServiceException{
+        return userProgressRepository.findCurrentRanking();
     }
 }
