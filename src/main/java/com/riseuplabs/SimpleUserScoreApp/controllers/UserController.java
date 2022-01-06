@@ -1,5 +1,4 @@
 package com.riseuplabs.SimpleUserScoreApp.controllers;
-
 import com.riseuplabs.SimpleUserScoreApp.models.User;
 import com.riseuplabs.SimpleUserScoreApp.pojo.response.ApiResponse;
 import com.riseuplabs.SimpleUserScoreApp.services.user.UserService;
@@ -23,8 +22,6 @@ public class UserController {
     public ResponseEntity<Object> getUser(@PathVariable Long id){
         ApiResponse response = new ApiResponse();
         String messageCode;
-
-        System.out.println("Working");
 
         try{
             User user = userService.findById(id);
@@ -63,6 +60,35 @@ public class UserController {
         }else{
             response.setSuccess(false);
             messageCode = "api.create.failed";
+            response.setMessage(messageSource.getMessage(messageCode, null, null));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @RequestMapping(value = Mappings.UPDATE_USER, method = RequestMethod.POST)
+    public ResponseEntity<Object> updateUser(@RequestBody User user){
+        ApiResponse response = new ApiResponse();
+        String messageCode;
+
+        try {
+            User userItem = userService.findById(user.getId());
+            if(userItem != null){
+                userItem.setName(user.getName());
+                userItem.setCountry(user.getCountry());
+                response.setData(userService.update(userItem));
+
+                messageCode = "api.update.success";
+                response.setMessage(messageSource.getMessage(messageCode, null, null));
+                return ResponseEntity.status(HttpStatus.OK).body(response);
+            }else{
+                response.setSuccess(false);
+                messageCode = "user.not.found";
+                response.setMessage(messageSource.getMessage(messageCode, null, null) + " with id " + user.getId());
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            }
+        }catch (Exception e){
+            response.setSuccess(false);
+            messageCode = "api.update.failed";
             response.setMessage(messageSource.getMessage(messageCode, null, null));
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }

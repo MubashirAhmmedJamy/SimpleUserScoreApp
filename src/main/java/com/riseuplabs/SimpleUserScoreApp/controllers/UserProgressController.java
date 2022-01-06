@@ -64,4 +64,49 @@ public class UserProgressController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
+
+    @RequestMapping(value = Mappings.UPDATE_USER_PROGRESS, method = RequestMethod.POST)
+    public ResponseEntity<Object> updateUserProgress(@RequestBody UserProgressReq userProgressReq){
+        ApiResponse response = new ApiResponse();
+        String messageCode;
+        User user = userService.findById(userProgressReq.getUser_id());
+        UserProgress userProgress = new UserProgress();
+
+        if(user != null){
+            try {
+                userProgress.setUser(user);
+                userProgress.setLevel(userProgressReq.getLevel());
+                userProgress.setScore(userProgressReq.getScore());
+
+                if(user.getUserProgress() != null){
+                    userProgress.setId(user.getUserProgress().getId());
+                }
+
+                UserProgress userProgressItem = userProgressService.update(userProgress);
+
+                if(userProgressItem != null){
+                    response.setData(userProgressItem);
+                    messageCode = "api.update.success";
+                    response.setMessage(messageSource.getMessage(messageCode, null, null));
+                    return ResponseEntity.status(HttpStatus.OK).body(response);
+                }else{
+                    response.setSuccess(false);
+                    messageCode = "api.update.failed";
+                    response.setMessage(messageSource.getMessage(messageCode, null, null));
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+                }
+            }catch (Exception e){
+                response.setSuccess(false);
+                messageCode = "api.update.failed";
+                response.setMessage(messageSource.getMessage(messageCode, null, null));
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            }
+        }else{
+            response.setSuccess(false);
+            messageCode = "user.not.found";
+            response.setMessage(messageSource.getMessage(messageCode, null, null)+" with id "+userProgressReq.getUser_id());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+    }
+
 }

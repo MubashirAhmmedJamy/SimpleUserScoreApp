@@ -25,7 +25,7 @@ public class UserProgressServiceImpl implements UserProgressService{
 
     @Override
     public UserProgress update(UserProgress userProgress) throws ServiceException {
-        return null;
+        return userProgressRepository.save(userProgress);
     }
 
     @Override
