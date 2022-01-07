@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "user_progress")
+@Table(name = "user_progress", schema = "score", catalog = "score")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

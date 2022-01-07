@@ -48,4 +48,9 @@ public class UserProgressServiceImpl implements UserProgressService{
     public List<Rank> getCurrentRanking() throws ServiceException{
         return userProgressRepository.findCurrentRanking();
     }
+
+    @Override
+    public Rank getRankingById(Long id) throws ServiceException{
+        return userProgressRepository.findRankingById(id);
+    }
 }

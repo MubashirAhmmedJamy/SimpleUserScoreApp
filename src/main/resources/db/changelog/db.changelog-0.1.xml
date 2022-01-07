@@ -16,7 +16,6 @@
             <column name="name" type="VARCHAR(255)"/>
             <column name="country" type="VARCHAR(100)"/>
         </createTable>
-
     </changeSet>
 
     <changeSet id="2" author="Jamy">
@@ -24,22 +23,9 @@
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
-
             <column name="level" type="INTEGER" defaultValue="0"/>
             <column name="score" type="FLOAT" defaultValue="0"/>
-
-            <column name="user_id" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
+            <column name="user_id" type="BIGINT"/>
         </createTable>
     </changeSet>
-
-
-    <changeSet id="3" author="Jamy">
-        <dropNotNullConstraint columnDataType="BIGINT"
-                               columnName="user_id"
-                               schemaName="score"
-                               tableName="user_progress"/>
-    </changeSet>
-
 </databaseChangeLog>

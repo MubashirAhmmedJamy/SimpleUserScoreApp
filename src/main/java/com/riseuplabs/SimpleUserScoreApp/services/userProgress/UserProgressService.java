@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface UserProgressService extends AbstractService<UserProgress> {
     List<Rank> getCurrentRanking();
+    Rank getRankingById(Long id);
 }
