@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "4dc8a2cb-f200-4c3f-b31b-a51c142d2754",
+		"name": "SimpleUserScore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"K\",\r\n    \"country\": \"K\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/createUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUserProgressbyUserId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"level\": 100,\r\n    \"score\": 100,\r\n    \"user_id\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/createUserProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"createUserProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/users/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"users",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":12,\r\n    \"name\": \"M\",\r\n    \"country\": \"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/updateUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"updateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserProgressByUserId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"level\": 50,\r\n    \"score\": 50,\r\n    \"user_id\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/updateUserProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"updateUserProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserProgressByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/users/12/getUserProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"users",
+						"12",
+						"getUserProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUserIncludingProgress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Y\",\r\n    \"country\": \"Y\",\r\n    \"userProgress\": {\r\n        \"level\": 30,\r\n        \"score\": 30\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/createUserIncludingProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"createUserIncludingProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserIncludingProgress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":13,\r\n    \"name\": \"Y-Updated\",\r\n    \"country\": \"Y-Updated\",\r\n    \"userProgress\": {\r\n        \"level\": 28,\r\n        \"score\": 28\r\n    }    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/simple/rest/updateUserIncludingProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"updateUserIncludingProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUserProgress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/userProgresses",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"userProgresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLeaders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/leaders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"leaders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserScoreByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/simple/rest/list/users/4/score",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"rest",
+						"list",
+						"users",
+						"4",
+						"score"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
